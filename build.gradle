@@ -1,4 +1,26 @@
-plugins {
-	id 'java-library'
+apply plugin: 'java-library'
+
+group = 'com.badlogicgames.box2dlights'
+version = '1.5-PBO'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+ext {
+	gdxVersion = '1.9.11-SNAPSHOT'
 }
 
+java {
+	withSourcesJar()
+}
+
+repositories {
+	jcenter()
+	maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+dependencies {
+	compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+	compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+	compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+	compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+}
